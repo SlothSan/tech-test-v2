@@ -3,20 +3,23 @@
     <h1>Acme Company Inc - Feedback Form</h1>
   </div>
   <div class="card-body">
-    <form novalidate
-          (ngSubmit)="handleSubmit()"
-          [formGroup]="feedbackForm">
+    <form novalidate (ngSubmit)="handleSubmit()" [formGroup]="feedbackForm">
       <div class="form-group row mb-2">
-        <label class="col-md-2 col-form-label" for="name">
-          Name:
-        </label>
+        <label class="col-md-2 col-form-label" for="name"> Name: </label>
         <div class="col-md-8">
-          <input class="form-control"
-                 id="name"
-                 type="text"
-                 placeholder="Enter your name..."
-                 formControlName="name"
-                 [ngClass]="{'is-invalid': (feedbackForm.get('name').touched || feedbackForm.get('name').dirty) && !feedbackForm.get('name').valid }"/>
+          <input
+            class="form-control"
+            id="name"
+            type="text"
+            placeholder="Enter your name..."
+            formControlName="name"
+            [ngClass]="{
+              'is-invalid':
+                (feedbackForm.get('name').touched ||
+                  feedbackForm.get('name').dirty) &&
+                !feedbackForm.get('name').valid
+            }"
+          />
           <span class="invalid-feedback">
             <span *ngIf="feedbackForm.get('name').errors?.['minlength']">
               Your name needs to be at least 6 characters long!
@@ -35,17 +38,24 @@
           Company Name:
         </label>
         <div class="col-md-8">
-        <input class="form-control"
-               id="companyName"
-               type="text"
-               placeholder="Enter your company name..."
-               formControlName="companyName"
-               [ngClass]="{'is-invalid': (feedbackForm.get('companyName').touched || feedbackForm.get('companyName').dirty) && !feedbackForm.get('companyName').valid }"/>
-        <span class="invalid-feedback">
-          <span *ngIf="feedbackForm.get('companyName').errors?.['required']">
-                Your company name is required!
+          <input
+            class="form-control"
+            id="companyName"
+            type="text"
+            placeholder="Enter your company name..."
+            formControlName="companyName"
+            [ngClass]="{
+              'is-invalid':
+                (feedbackForm.get('companyName').touched ||
+                  feedbackForm.get('companyName').dirty) &&
+                !feedbackForm.get('companyName').valid
+            }"
+          />
+          <span class="invalid-feedback">
+            <span *ngIf="feedbackForm.get('companyName').errors?.['required']">
+              Your company name is required!
+            </span>
           </span>
-        </span>
         </div>
       </div>
       <div class="form-group row mb-2">
@@ -53,17 +63,24 @@
           Job Title:
         </label>
         <div class="col-md-8">
-        <input class="form-control"
-               id="jobTitle"
-               type="text"
-               placeholder="Enter your job title..."
-               formControlName="jobTitle"
-               [ngClass]="{'is-invalid': (feedbackForm.get('companyName').touched || feedbackForm.get('companyName').dirty) && !feedbackForm.get('companyName').valid }"/>
-        <span class="invalid-feedback">
-          <span *ngIf="feedbackForm.get('jobTitle').errors?.['required']">
-                Your company name is required!
+          <input
+            class="form-control"
+            id="jobTitle"
+            type="text"
+            placeholder="Enter your job title..."
+            formControlName="jobTitle"
+            [ngClass]="{
+              'is-invalid':
+                (feedbackForm.get('jobTitle').touched ||
+                  feedbackForm.get('jobTitle').dirty) &&
+                !feedbackForm.get('jobTitle').valid
+            }"
+          />
+          <span class="invalid-feedback">
+            <span *ngIf="feedbackForm.get('jobTitle').errors?.['required']">
+              Your job title is required
+            </span>
           </span>
-        </span>
         </div>
       </div>
       <div class="form-group row mb-2">
@@ -71,22 +88,29 @@
           Years in role:
         </label>
         <div class="col-md-8">
-          <input class="form-control"
-                 id="yearsInRole"
-                 type="number"
-                 min="1"
-                 max="50"
-                 placeholder="1"
-                 formControlName="yearsInRole"
-                 [ngClass]="{'is-invalid': (feedbackForm.get('yearsInRole').touched || feedbackForm.get('yearsInRole').dirty) && !feedbackForm.get('yearsInRole').valid }"/>
+          <input
+            class="form-control"
+            id="yearsInRole"
+            type="number"
+            min="1"
+            max="50"
+            placeholder="1"
+            formControlName="yearsInRole"
+            [ngClass]="{
+              'is-invalid':
+                (feedbackForm.get('yearsInRole').touched ||
+                  feedbackForm.get('yearsInRole').dirty) &&
+                !feedbackForm.get('yearsInRole').valid
+            }"
+          />
           <span class="invalid-feedback">
-          <span *ngIf="feedbackForm.get('yearsInRole').errors?.['min']">
-                Your years in role is too low!
+            <span *ngIf="feedbackForm.get('yearsInRole').errors?.['min']">
+              Your years in role is too low!
+            </span>
+            <span *ngIf="feedbackForm.get('yearsInRole').errors?.['max']">
+              Your years in role is too high!
+            </span>
           </span>
-          <span *ngIf="feedbackForm.get('yearsInRole').errors?.['max']">
-                Your years in role is too high!
-          </span>
-        </span>
         </div>
       </div>
       <div class="form-group row mb-2">
@@ -94,25 +118,40 @@
           Additional feedback:
         </label>
         <div class="col-md-8">
-          <textarea class="form-control"
-                 id="additonalFeedback"
-                 placeholder="Enter some additional feedback..."
-                 formControlName="additionalFeedback"
-                 rows="3"
-                 [ngClass]="{'is-invalid': (feedbackForm.get('companyName').touched || feedbackForm.get('companyName').dirty) && !feedbackForm.get('companyName').valid }"></textarea>
+          <textarea
+            class="form-control"
+            id="additonalFeedback"
+            placeholder="Enter some additional feedback..."
+            formControlName="additionalFeedback"
+            rows="3"
+            [ngClass]="{
+              'is-invalid':
+                (feedbackForm.get('companyName').touched ||
+                  feedbackForm.get('companyName').dirty) &&
+                !feedbackForm.get('companyName').valid
+            }"
+          ></textarea>
           <span class="invalid-feedback">
-          <span *ngIf="feedbackForm.get('additionalFeedback').errors?.['required']">
-                Your feedback is required!
+            <span
+              *ngIf="feedbackForm.get('additionalFeedback').errors?.['required']"
+            >
+              Your feedback is required!
+            </span>
           </span>
-        </span>
         </div>
       </div>
       <div class="form-group row mb-2">
         <div class="offset-md-2 col-md-4 mt-2">
-          <button class="btn btn-primary mr-3"
-                  type="submit"
-                  [title]="feedbackForm.valid ? 'Submit your data!' : 'Disabled until the form data is valid'"
-                  [disabled]="!feedbackForm.valid">
+          <button
+            class="btn btn-primary mr-3"
+            type="submit"
+            [title]="
+              feedbackForm.valid
+                ? 'Submit your data!'
+                : 'Disabled until the form data is valid'
+            "
+            [disabled]="!feedbackForm.valid"
+          >
             Submit Feedback
           </button>
         </div>
